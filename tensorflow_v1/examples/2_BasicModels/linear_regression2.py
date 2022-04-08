@@ -9,8 +9,6 @@ from __future__ import print_function
 
 import tensorflow as tf
 import numpy
-import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 rng = numpy.random
 
@@ -71,7 +69,7 @@ with tf.Session() as sess:
     plt.plot(train_X, train_Y, 'ro', label='Original data')
     plt.plot(train_X, sess.run(W) * train_X + sess.run(b), label='Fitted line')
     plt.legend()
-    plt.savefig("res_train.png")
+    plt.show()
 
     # Testing example, as requested (Issue #2)
     test_X = numpy.asarray([6.83, 4.668, 8.9, 7.91, 5.7, 8.7, 3.1, 2.1])
@@ -88,4 +86,4 @@ with tf.Session() as sess:
     plt.plot(test_X, test_Y, 'bo', label='Testing data')
     plt.plot(train_X, sess.run(W) * train_X + sess.run(b), label='Fitted line')
     plt.legend()
-    plt.savefig("res_test.png")
+    plt.show()
